@@ -5,7 +5,7 @@ export const ElicommerceLayout = ({ children }) => {
     return (
         <>
             <Header />
-            <main className="max-w-lg mx-auto">{children}</main>
+            <main className="bg-bgMain py-24">{children}</main>
         </>
     );
 };

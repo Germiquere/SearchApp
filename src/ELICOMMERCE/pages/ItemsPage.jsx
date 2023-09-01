@@ -6,9 +6,9 @@ import { getItemsByName } from "../../api/getItemsByName";
 import { ProductCard } from "../components/ProductCard";
 export const ItemsPage = () => {
     const location = useLocation();
-    console.log(location);
-    const { search } = queryString.parse(location.search);
 
+    const { search } = queryString.parse(location.search);
+    console.log(search);
     const [searching, setSearching] = useState(search);
     const [products, setProducts] = useState([]);
     const [data, setData] = useState({});
@@ -35,13 +35,15 @@ export const ItemsPage = () => {
 
     return (
         <ElicommerceLayout>
-            {loading ? (
-                <p>Cargando...</p>
-            ) : (
-                products.results.map((product) => (
-                    <ProductCard key={product.id} {...product} />
-                ))
-            )}
+            <section className="container mr-auto ml-auto max-w-4xl rounded-sm bg-white">
+                {loading ? (
+                    <p>Cargando...</p>
+                ) : (
+                    products.results.map((product) => (
+                        <ProductCard key={product.id} {...product} />
+                    ))
+                )}
+            </section>
         </ElicommerceLayout>
     );
 };
