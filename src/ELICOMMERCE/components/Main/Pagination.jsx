@@ -1,5 +1,5 @@
 import queryString from "query-string";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 
 const Pagination = () => {
@@ -9,25 +9,27 @@ const Pagination = () => {
     const navigate = useNavigate();
 
     const handleSum = () => {
-        setProductNumbers((prev) => prev + 50);
+        const newProductNumbers = productNumbers + 50;
+        setProductNumbers(newProductNumbers);
         console.log(search);
         const parts = search.split("_");
         console.log(parts);
         const newPart = parts[0];
         console.log(newPart);
-
-        navigate(`/items?search=${newPart}_Desde_${productNumbers}`);
+        navigate(`/items?search=${newPart}_Desde_${newProductNumbers}`);
     };
     const handleRest = () => {
-        setProductNumbers((prev) => prev - 50);
+        const newProductNumbers = productNumbers - 50;
+        setProductNumbers(newProductNumbers);
         console.log(search);
         const parts = search.split("_");
         console.log(parts);
         const newPart = parts[0];
         console.log(newPart);
-
-        navigate(`/items?search=${newPart}_Desde_${productNumbers}`);
+        navigate(`/items?search=${newPart}_Desde_${newProductNumbers}`);
     };
+
+    useEffect(() => {}, [handleRest, handleSum]);
     return (
         <div className="">
             <nav className="flex">
