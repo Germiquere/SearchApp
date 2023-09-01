@@ -3,7 +3,9 @@ import React from "react";
 export const getItemsByName = async (name) => {
     try {
         const res = await fetch(
-            `${import.meta.env.VITE_URL_API_SEARCH}/search?q=${name}&limit=10`
+            `${
+                import.meta.env.VITE_URL_API_SEARCH
+            }/search?q=${name}&limit=50&offset=0`
         );
         if (!res.ok) {
             throw new Error("Error al cargar los productos");

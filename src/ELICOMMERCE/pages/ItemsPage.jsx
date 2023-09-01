@@ -8,7 +8,6 @@ export const ItemsPage = () => {
     const location = useLocation();
 
     const { search } = queryString.parse(location.search);
-    console.log(search);
     const [searching, setSearching] = useState(search);
     const [products, setProducts] = useState([]);
     const [loading, setLoading] = useState(true);
