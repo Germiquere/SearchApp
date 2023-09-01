@@ -11,7 +11,6 @@ export const ItemsPage = () => {
     console.log(search);
     const [searching, setSearching] = useState(search);
     const [products, setProducts] = useState([]);
-    const [data, setData] = useState({});
     const [loading, setLoading] = useState(true);
     useEffect(() => {
         setSearching(search);
@@ -23,7 +22,6 @@ export const ItemsPage = () => {
                 const dataFetch = await getItemsByName(search);
 
                 setProducts(dataFetch);
-                // setData(dataFetch);
             } catch (error) {
                 console.log(error);
             } finally {
@@ -36,30 +34,11 @@ export const ItemsPage = () => {
     return (
         <ElicommerceLayout>
             <section className="container mr-auto ml-auto max-w-4xl rounded-sm bg-white">
-                {loading ? (
-                    <p>Cargando...</p>
-                ) : (
+                {!loading &&
                     products.results.map((product) => (
                         <ProductCard key={product.id} {...product} />
-                    ))
-                )}
+                    ))}
             </section>
         </ElicommerceLayout>
     );
 };
-// obteniendo el nombre de cada categoria
-// const namesArray = dataFetch.filters?.flatMap((filter) =>
-//     filter.values.flatMap((value) =>
-//         value.path_from_root.map((item) => item.name)
-//     )
-// );
-// console.log(namesArray);
-// const newData = {
-//     author: {
-//         name: "German",
-//         lastname: "Miquere",
-//     },
-//     // categories: namesArray,
-//     items: dataFetch.results,
-// };
-// setData(newData);

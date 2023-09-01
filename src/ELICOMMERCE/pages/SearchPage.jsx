@@ -1,6 +1,5 @@
 import React from "react";
 import { ElicommerceLayout } from "../layout/ElicommerceLayout";
-import carrousel1 from "../../assets/carrousel1.webp";
 
 export const SearchPage = () => {
     return (
