@@ -11,7 +11,7 @@ export const Header = () => {
         e.preventDefault();
         if (search.length === 0) return;
 
-        navigate(`/items?search=${search}`);
+        navigate(`/items?search=${search}&offset=0`);
     };
 
     const handleFocus = () => {

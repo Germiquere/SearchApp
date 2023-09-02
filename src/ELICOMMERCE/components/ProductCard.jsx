@@ -11,7 +11,7 @@ export const ProductCard = ({
     return (
         <Link to={id}>
             <div className="border-b p-5 flex flex-row gap-3">
-                <img className="w-36" src={thumbnail} alt={title} />
+                <img className="w-36 h-36" src={thumbnail} alt={title} />
                 <div className="flex flex-col pt px-3 gap-4">
                     <h2 className="text-letterColor text-xl font-light pt-2">
                         {title}

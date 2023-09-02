@@ -1,11 +1,11 @@
 import React from "react";
 
-export const getItemsByName = async (name) => {
+export const getItemsByName = async (name, offset = 0) => {
     try {
         const res = await fetch(
             `${
                 import.meta.env.VITE_URL_API_SEARCH
-            }/search?q=${name}&limit=50&offset=0`
+            }/search?q=${name}&limit=50&offset=${offset}`
         );
         if (!res.ok) {
             throw new Error("Error al cargar los productos");
@@ -38,6 +38,7 @@ export const getItemsByName = async (name) => {
                 name: "German",
                 lastname: "Miquere",
             },
+            paging: data.paging,
             categories: categoriesArray,
             items: itemsArray,
         };
