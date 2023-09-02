@@ -30,7 +30,7 @@ const Pagination = () => {
     useEffect(() => {}, [handleRest, handleSum]);
     return (
         <div className="">
-            <nav className="flex">
+            <nav className="flex flex-row">
                 {parseInt(offset) !== 0 && (
                     <button onClick={handleRest}>
                         <span>
