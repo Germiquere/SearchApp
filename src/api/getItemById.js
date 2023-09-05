@@ -8,7 +8,7 @@ export const getItemById = async (id) => {
             throw new Error("Error al cargar los productos");
         }
         const data = await res.json();
-        console.log(data);
+        // console.log(data);
         return data;
     } catch (error) {
         console.log(error);
