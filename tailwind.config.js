@@ -10,6 +10,7 @@ export default {
                 bgMain: "#ededed",
                 letterColor: "#333",
                 envioGratis: "#00A650",
+                nextGray: "#e4e4e4",
             },
         },
     },

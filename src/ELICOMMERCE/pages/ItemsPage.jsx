@@ -40,7 +40,7 @@ export const ItemsPage = () => {
                         <ProductCard key={product.id} {...product} />
                     ))}
             </section>
-            {!loading && <Pagination />}
+            {!loading && <Pagination products={products} />}
         </ElicommerceLayout>
     );
 };

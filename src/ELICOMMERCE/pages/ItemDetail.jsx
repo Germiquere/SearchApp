@@ -21,27 +21,47 @@ export const ItemDetail = () => {
         };
         fetchProduct();
     }, []);
-
+    console.log(product.currency_id);
     return (
         <ElicommerceLayout>
-            <div>
-                <div>
-                    <img src={product.thumbnail} alt={product.title} />
-                </div>
-                <div>
-                    <div>
-                        <p>{product.condition}</p>
-                        <p>{product.sold_quantity}</p>
+            <div className="bg-white flex flex-col max-w-4xl mx-auto">
+                <div className="flex flex-row">
+                    <div className="flex-1 flex justify-center">
+                        <div className="w-96">
+                            <img
+                                className="w-full "
+                                src={product.thumbnail}
+                                alt={product.title}
+                            />
+                        </div>
                     </div>
-                    <p>{product.title}</p>
-                    <p>{product.price}</p>
-                    <button>COMPRAR</button>
+                    <div className="flex-2">
+                        <div className="border p-5 m-4 rounded-md flex flex-col gap-3">
+                            <div>
+                                <p>
+                                    {product.condition === "new"
+                                        ? "Nuevo"
+                                        : "Usado"}{" "}
+                                    | {product.sold_quantity} vendidos
+                                </p>
+                            </div>
+                            <h2>{product.title}</h2>
+                            <p>
+                                {!loading &&
+                                    product.price.toLocaleString("es-AR", {
+                                        style: "currency",
+                                        currency: product.currency_id,
+                                    })}
+                            </p>
+                            <button>COMPRAR</button>
+                        </div>
+                    </div>
                 </div>
-            </div>
-            <div>
-                <h3>Descripcion del producto</h3>
-                {/* TODO: hacer el fetch al endpoint de la descripcion */}
-                <p>una descripcion statica por ahora</p>
+                <div>
+                    <h3>Descripcion del producto</h3>
+                    {/* TODO: hacer el fetch al endpoint de la descripcion */}
+                    <p>una descripcion statica por ahora</p>
+                </div>
             </div>
         </ElicommerceLayout>
     );
