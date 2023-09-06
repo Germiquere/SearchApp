@@ -60,7 +60,18 @@ export const ItemDetail = () => {
                                         currency: product.currency_id,
                                     })}
                                 </p>
-                                <button>COMPRAR</button>
+                                <p>
+                                    {product.available_quantity === 1
+                                        ? "¡Última disponible!"
+                                        : "Stock Disponible"}
+                                </p>
+                                {product.available_quantity > 1 && (
+                                    <p>
+                                        Cantidad: {product.available_quantity}
+                                    </p>
+                                )}
+                                <button>Comprar ahora</button>
+                                <button>Agregar al carrito</button>
                             </div>
                         </div>
                     </div>

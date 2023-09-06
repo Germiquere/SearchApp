@@ -1,8 +1,6 @@
 export const getItemById = async (id) => {
     try {
-        const res = await fetch(
-            `${import.meta.env.VITE_URL_API_ITEM_BY_ID}${id}`
-        );
+        const res = await fetch(`https://api.mercadolibre.com/items/${id}`);
         console.log(`${import.meta.env.VITE_URL_API_ITEM_BY_ID}${id}`);
         if (!res.ok) {
             throw new Error("Error al cargar los productos");

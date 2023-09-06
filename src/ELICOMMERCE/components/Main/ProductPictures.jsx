@@ -13,6 +13,11 @@ const ProductPictures = ({ product, setCurrentPicture, currentPicture }) => {
         console.log(index);
     };
 
+    const onMouse =
+        "cursor-pointer w-14 h-14 overflow-hidden p-1 border-2 rounded-md border-borderColor";
+    const outMouse =
+        "cursor-pointer w-14 h-14 overflow-hidden p-1 border-2 rounded-md border-nextGray";
+
     return (
         <div className="flex flex-col gap-2 p-3">
             {newProducts.map((picture, index) => (
@@ -21,9 +26,7 @@ const ProductPictures = ({ product, setCurrentPicture, currentPicture }) => {
                         handleMouseEnter(index);
                     }}
                     key={index}
-                    className={` cursor-pointer w-14 h-14 overflow-hidden p-1 border-2 border-nextGray rounded-md ${
-                        currentPicture === index ? "border-blue-600" : ""
-                    }`}
+                    className={currentPicture === index ? onMouse : outMouse}
                 >
                     <img
                         className="w-full h-full object-contain"

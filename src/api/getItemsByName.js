@@ -3,9 +3,7 @@ import React from "react";
 export const getItemsByName = async (name, offset = 0) => {
     try {
         const res = await fetch(
-            `${
-                import.meta.env.VITE_URL_API_SEARCH
-            }/search?q=${name}&limit=50&offset=${offset}`
+            `https://api.mercadolibre.com/sites/MLA/search?q=${name}&limit=50&offset=${offset}`
         );
         if (!res.ok) {
             throw new Error("Error al cargar los productos");
