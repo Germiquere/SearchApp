@@ -22,7 +22,7 @@ const ProductPictures = ({ product, setCurrentPicture, currentPicture }) => {
                     }}
                     key={index}
                     className={` cursor-pointer w-14 h-14 overflow-hidden p-1 border-2 border-nextGray rounded-md ${
-                        currentPicture === index ? "border-blue-500" : ""
+                        currentPicture === index ? "border-blue-600" : ""
                     }`}
                 >
                     <img
